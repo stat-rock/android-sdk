@@ -54,7 +54,7 @@ class SimpleFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         //... init view
         StatRockView statRock = view.findViewById(R.id.statrock);
-        statRock.load("Hr5pC_SLH6PV");
+        statRock.load("<your placement ID>");
         
         return view;
     }
