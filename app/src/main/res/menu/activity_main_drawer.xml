@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <item
+        android:id="@+id/nav_inpage"
+        android:title="inPage"
+        tools:ignore="HardcodedText" />
+
+    <item
+        android:id="@+id/nav_recycler_view"
+        android:title="inPage (RecyclerView)"
+        tools:ignore="HardcodedText" />
+
+    <item
+        android:id="@+id/nav_inview"
+        android:title="inView"
+        tools:ignore="HardcodedText" />
+
+    <!--<item android:title="InView"-->
+        <!--tools:ignore="HardcodedText">-->
+        <!--<menu>-->
+            <!--<item-->
+                <!--android:id="@+id/nav_inview_frame_layout"-->
+                <!--android:title="inView FrameLayout"-->
+                <!--tools:ignore="HardcodedText" />-->
+
+            <!--<item-->
+                <!--android:id="@+id/nav_inview_recycler_view"-->
+                <!--android:title="inView RecyclerView"-->
+                <!--tools:ignore="HardcodedText" />-->
+        <!--</menu>-->
+    <!--</item>-->
+
+    <!--<item android:title="InBanner"-->
+        <!--tools:ignore="HardcodedText">-->
+        <!--<menu>-->
+            <!--<item-->
+                <!--android:id="@+id/nav_inbanner_linear_layout_simple_wrap_content"-->
+                <!--android:title="inBanner LinearLayout wrap_content"-->
+                <!--tools:ignore="HardcodedText" />-->
+            <!--<item-->
+                <!--android:id="@+id/nav_inbanner_linear_layout_simple_300x250"-->
+                <!--android:title="inBanner LinearLayout 300x250"-->
+                <!--tools:ignore="HardcodedText" />-->
+            <!--<item-->
+                <!--android:id="@+id/nav_inbanner_linear_layout_simple_350x350"-->
+                <!--android:title="inBanner LinearLayout 350x350"-->
+                <!--tools:ignore="HardcodedText" />-->
+            <!--<item-->
+                <!--android:id="@+id/nav_inbanner_scroll_view_simple_wrap_content"-->
+                <!--android:title="inBanner ScrollView wrap_content"-->
+                <!--tools:ignore="HardcodedText" />-->
+        <!--</menu>-->
+    <!--</item>-->
+
+    <!--<item android:title="InPage"-->
+        <!--tools:ignore="HardcodedText">-->
+        <!--<menu>-->
+            <!--<item-->
+                <!--android:id="@+id/nav_inpage_linear_layout_simple_wrap_content"-->
+                <!--android:title="inPage LinearLayout wrap_content"-->
+                <!--tools:ignore="HardcodedText" />-->
+            <!--<item-->
+                <!--android:id="@+id/nav_inpage_linear_layout_simple_300x250"-->
+                <!--android:title="inPage LinearLayout 300x250"-->
+                <!--tools:ignore="HardcodedText" />-->
+            <!--<item-->
+                <!--android:id="@+id/nav_inpage_linear_layout_simple_350x350"-->
+                <!--android:title="inPage LinearLayout 350x350"-->
+                <!--tools:ignore="HardcodedText" />-->
+            <!--<item-->
+                <!--android:id="@+id/nav_inpage_scroll_view_simple_wrap_content"-->
+                <!--android:title="inPage ScrollView wrap_content"-->
+                <!--tools:ignore="HardcodedText" />-->
+        <!--</menu>-->
+    <!--</item>-->
+
+</menu>
