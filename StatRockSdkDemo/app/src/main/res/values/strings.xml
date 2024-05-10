@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">StatRock</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">StatRock</string>
+    <string name="nav_header_subtitle">Development</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="title">Publisher Opportunity With Outstream Ads</string>
+    <string name="text1">
+        <![CDATA[
+        Even though the digital advertising industry has been blooming for almost two decades now, the average ad campaign effectiveness still lags.
+        <br /><br />
+        The stats are devastating. According to Forrester, online advertisers wasted about $7.4B in 2016, due to poor-quality ad placement, with only 40% of ad units being actually seen by real human beings. Moreover, around 39% of US-based adult consumers, as the report reveals, ended up installing ad blockers.
+        <br /><br />
+        The scope of issues in the video ad segment is includes in-stream video ad inventory shortage, lack of ad relevance, or poor ad traffic quality, just to name the few. All of these lead to poor ad viewability, disruptive viewers’ experience, and consequently, low VTRs (view-through rates).
+        <br /><br />
+        <b>The evidence is clear:</b> people are growing exhausted of intrusive, non-relevant advertising messages, which inevitably results in ad blindness, irritation and use of ad blocking software.
+        <br /><br />
+        Does this mean we’ll be witnessing a slow decay of digital advertising as we know it soon? Or is there a way to boost ad viewability and reach, after all?
+        <br /><br />
+        Well, in terms of video advertising, there is an option, worth checking out.
+        ]]>
+    </string>
+    <string name="title2">The Rise of Outstream Video Ads</string>
+    <string name="text2">The new outstream ad formats have emerged as a possible solution to major challenges across the video advertising landscape. Quite predictably, they’ve been on the rise ever since.
+        <![CDATA[
+        <br /><br />
+        Specifically designed to play in a non-video environment, i.e. within articles, news feeds or other editorial content, outstream ads unlock more revenue opportunities for publishers with no pre-existing video content.
+        ]]>
+    </string>
+    <string name="title3">Key Outstream Benefits for Publishers</string>
+    <string name="text3">
+        <![CDATA[
+        As mentioned above, the core advantage of outstream ads is their universal character, i.e. publishers need neither to host video content nor to modify their current advertising stack, to serve such ads.
+        <br /><br />
+        Unlike the more conventional in-stream ad units, outstream ads are:
+        <br />
+        <ul>
+        <li>natively-rendered into a website</li>
+        <li>optimized for cross-screen display</li>
+        <li>and highly-viewable for website readers.</li>
+        </ul>
+        <br />
+        More importantly, the outstream video ad formats are also considerate of user interaction, i.e. the ad launches only when in-view, usually in the “sound off” mode, and collapses automatically upon further page scroll.
+        <br /><br />
+        This ensures both the non-intrusive ad experience and higher VTRs.
+        ]]>
+    </string>
+</resources>
