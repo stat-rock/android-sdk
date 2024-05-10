@@ -62,4 +62,4 @@ class SimpleFragment extends Fragment {
 ```
 
 ## Demo project
-https://github.com/stat-rock/android-sdk
+https://github.com/stat-rock/android-sdk/tree/master/StatRockSdkDemo
