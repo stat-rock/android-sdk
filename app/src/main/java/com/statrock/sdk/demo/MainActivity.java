@@ -18,6 +18,7 @@ import androidx.fragment.app.FragmentManager;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
+import com.statrock.sdk.BuildConfig;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -90,17 +91,14 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         int fragmentLayoutId;
         Class<?> fragmentClass = StatRockInPageFragment.class;
-        switch (menuItem.getItemId()) {
-            case R.id.nav_recycler_view:
-                fragmentLayoutId = R.layout.fragment_recycler_view;
-                fragmentClass = StatRockInRecyclerViewFragment.class;
-                break;
-            case R.id.nav_inview:
-                fragmentLayoutId = R.layout.fragment_inview;
-                fragmentClass = StatRockInViewFragment.class;
-                break;
-            default:
-                fragmentLayoutId = R.layout.fragment_inpage;
+        if (menuItem.getItemId() == R.id.nav_recycler_view) {
+            fragmentLayoutId = R.layout.fragment_recycler_view;
+            fragmentClass = StatRockInRecyclerViewFragment.class;
+        } else if (menuItem.getItemId() == R.id.nav_inview) {
+            fragmentLayoutId = R.layout.fragment_inview;
+            fragmentClass = StatRockInViewFragment.class;
+        } else {
+            fragmentLayoutId = R.layout.fragment_inpage;
         }
 
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -110,13 +108,16 @@ public class MainActivity extends AppCompatActivity
             method = fragmentClass.getMethod("newInstance", int.class);
             fragment = (Fragment) method.invoke(null, fragmentLayoutId);
             fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
-        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
+        } catch (NoSuchMethodException | IllegalAccessException |
+                 InvocationTargetException e) {
             e.printStackTrace();
         }
 
         NavigationView navigationView = findViewById(R.id.nav_view);
+
         unCheckAllMenuItems(navigationView.getMenu());
         menuItem.setChecked(true);
+
         setTitle(menuItem.getTitle());
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

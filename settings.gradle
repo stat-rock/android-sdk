@@ -11,7 +11,7 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         maven {
-            url 'https://github.com/stat-rock/android-sdk/master/releases'
+            url 'https://raw.githubusercontent.com/stat-rock/android-sdk/master/releases'
         }
     }
 }
