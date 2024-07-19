@@ -20,31 +20,19 @@ public abstract class SimpleFragment extends BaseFragment {
         TextView textView1 = view.findViewById(R.id.text1);
         if (textView1 != null) {
             Spanned info;
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                info = Html.fromHtml(getString(R.string.text1), Html.FROM_HTML_MODE_LEGACY);
-            } else {
-                info = Html.fromHtml(getString(R.string.text1));
-            }
+            info = Html.fromHtml(getString(R.string.text1), Html.FROM_HTML_MODE_LEGACY);
             textView1.setText(info);
         }
         TextView textView2 = view.findViewById(R.id.text2);
         if (textView2 != null) {
             Spanned info;
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                info = Html.fromHtml(getString(R.string.text2), Html.FROM_HTML_MODE_LEGACY);
-            } else {
-                info = Html.fromHtml(getString(R.string.text2));
-            }
+            info = Html.fromHtml(getString(R.string.text2), Html.FROM_HTML_MODE_LEGACY);
             textView2.setText(info);
         }
         TextView textView3 = view.findViewById(R.id.text3);
         if (textView3 != null) {
             Spanned info;
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                info = Html.fromHtml(getString(R.string.text3), Html.FROM_HTML_MODE_LEGACY);
-            } else {
-                info = Html.fromHtml(getString(R.string.text3));
-            }
+            info = Html.fromHtml(getString(R.string.text3), Html.FROM_HTML_MODE_LEGACY);
             textView3.setText(info);
         }
         return view;

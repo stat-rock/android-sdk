@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.statrock.sdk.StatRockListener;
+import com.statrock.sdk.StatRockType;
 import com.statrock.sdk.StatRockView;
 import com.statrock.sdk.demo.util.DimensionUtils;
 
@@ -132,7 +133,7 @@ public class StatRockRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
     @Override
     public long getItemId(int position) {
         if (position == adPosition) {
-            return RecyclerView.NO_ID;
+            return 1001;
         } else {
             return wrappedAdapter.getItemId(wrappedPosition(position));
         }
@@ -206,7 +207,7 @@ public class StatRockRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
         }
 
         void load(String placementId) {
-            adPlayerView.load(placementId);
+            adPlayerView.load(placementId, StatRockType.IN_PAGE);
         }
     }
 }

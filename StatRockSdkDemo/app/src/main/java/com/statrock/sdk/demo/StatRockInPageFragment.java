@@ -10,6 +10,7 @@ import android.widget.ScrollView;
 
 import androidx.annotation.NonNull;
 
+import com.statrock.sdk.StatRockType;
 import com.statrock.sdk.StatRockView;
 
 public class StatRockInPageFragment extends SimpleFragment {
@@ -36,7 +37,7 @@ public class StatRockInPageFragment extends SimpleFragment {
                 if (result
                         && statRock.getHeight() == rect.height()
                         && statRock.getWidth() == rect.width()) {
-                    statRock.load("Hr5pC_SLH6PV");
+                    statRock.load("Hr5pC_SLH6PV", StatRockType.IN_PAGE);
                     scrollView.getViewTreeObserver().removeOnScrollChangedListener(this);
                 }
             }
