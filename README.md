@@ -54,7 +54,7 @@ class SimpleFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         //... init view
         StatRockView statRock = view.findViewById(R.id.statrock);
-        statRock.load("Hr5pC_SLH6PV", TYPE); //TYPE: StatRockType - IN_PAGE or null
+        statRock.load("<your placement ID>", TYPE); //TYPE: StatRockType - IN_PAGE or null 
         
         return view;
     }
@@ -62,4 +62,4 @@ class SimpleFragment extends Fragment {
 ```
 
 ## Demo project
-https://github.com/stat-rock/android-sdk
+https://github.com/stat-rock/android-sdk/tree/master/StatRockSdkDemo
