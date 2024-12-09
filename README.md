@@ -32,7 +32,7 @@ Then, add the library dependency to app module `build.gradle`:
 ```gradle
 dependencies {
     ...
-    implementation 'com.statrock.sdk:android.release:1.4.1''
+    implementation 'com.statrock.sdk:android.release:1.4.2''
 }
 ```
 
