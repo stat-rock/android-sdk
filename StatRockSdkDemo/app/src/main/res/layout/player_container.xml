@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.statrock.sdk.StatRockContainer xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/normal_player_container"
+    android:layout_width="match_parent"
+    android:layout_height="335dp">
+
+    <com.statrock.sdk.StatRockView
+        android:id="@+id/statrock"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</com.statrock.sdk.StatRockContainer>
