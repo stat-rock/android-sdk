@@ -3,10 +3,6 @@ pluginManagement {
         google()
         mavenCentral()
         gradlePluginPortal()
-
-        flatDir {
-            dirs("libs")
-        }
     }
 }
 dependencyResolutionManagement {
@@ -14,9 +10,12 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven {
-            url 'https://raw.githubusercontent.com/stat-rock/android-sdk/master/releases'
+        flatDir {
+            dirs 'libs'
         }
+//        maven {
+//            url 'https://raw.githubusercontent.com/stat-rock/android-sdk/master/releases'
+//        }
     }
 }
 

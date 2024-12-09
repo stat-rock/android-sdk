@@ -5,9 +5,15 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
-        android:scrollbars="vertical"
-        android:paddingTop="?attr/actionBarSize"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:paddingTop="?attr/actionBarSize"
+        android:scrollbars="vertical" />
 
+    <FrameLayout
+        android:id="@+id/sticky_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:visibility="gone" />
 </FrameLayout>

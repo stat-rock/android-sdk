@@ -5,11 +5,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
+import android.widget.FrameLayout;
 import android.widget.ScrollView;
 
 import androidx.annotation.NonNull;
 
+import com.statrock.sdk.StatRockListener;
 import com.statrock.sdk.StatRockType;
 import com.statrock.sdk.StatRockView;
 
@@ -23,23 +24,26 @@ public class StatRockInPageFragment extends SimpleFragment {
         return fragment;
     }
 
+    private boolean isPlayerLoaded = false;
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = super.onCreateView(inflater, container, savedInstanceState);
-        StatRockView statRock = view.findViewById(R.id.statrock);
+
+        ScrollView scrollView = view.findViewById(R.id.scroll_view);
+        StatRockView statRockView = view.findViewById(R.id.statrock);
+        FrameLayout stickyContainer = view.findViewById(R.id.sticky_container);
+        statRockView.setStickyContainer(stickyContainer);
 
         Rect rect = new Rect();
-        ScrollView scrollView = (ScrollView) view;
-        scrollView.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
-            @Override
-            public void onScrollChanged() {
-                boolean result = statRock.getGlobalVisibleRect(rect);
-                if (result
-                        && statRock.getHeight() == rect.height()
-                        && statRock.getWidth() == rect.width()) {
-                    statRock.load("Hr5pC_SLH6PV", StatRockType.IN_PAGE);
-                    scrollView.getViewTreeObserver().removeOnScrollChangedListener(this);
-                }
+        scrollView.getViewTreeObserver().addOnScrollChangedListener(() -> {
+            boolean isVisible = statRockView.getGlobalVisibleRect(rect);
+
+            if (!isPlayerLoaded && isVisible
+                    && rect.top >= 0
+                    && rect.bottom <= scrollView.getHeight()) {
+                statRockView.load("Hr5pC_SLH6PV", StatRockType.IN_PAGE);
+                isPlayerLoaded = true;
             }
         });
         return view;

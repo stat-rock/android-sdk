@@ -1,9 +1,11 @@
 package com.statrock.sdk.demo;
 
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -11,12 +13,16 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.statrock.sdk.StatRockType;
+import com.statrock.sdk.StatRockView;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class StatRockInRecyclerViewFragment extends BaseFragment {
     private final List<Movie> movieList = new ArrayList<>();
     private MoviesAdapter mAdapter;
+    private boolean isPlayerLoaded;
 
     @SuppressWarnings("unused")
     public static StatRockInRecyclerViewFragment newInstance(int layoutId) {
@@ -31,12 +37,41 @@ public class StatRockInRecyclerViewFragment extends BaseFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(layoutId, container, false);
         RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
+        FrameLayout stickyContainer = view.findViewById(R.id.sticky_container);
 
         mAdapter = new MoviesAdapter(movieList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(inflater.getContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(new StatRockRecyclerViewAdapter(mAdapter, "Hr5pC_SLH6PV"));
+
+        Rect rect = new Rect();
+        int adPosition = 2;
+        recyclerView.setAdapter(new StatRockRecyclerViewAdapter(mAdapter, adPosition, stickyContainer));
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
+                if (layoutManager instanceof LinearLayoutManager) {
+                    LinearLayoutManager linearLayoutManager = (LinearLayoutManager) layoutManager;
+                    View playerItemView = linearLayoutManager.findViewByPosition(adPosition);
+
+                    if (playerItemView != null) {
+                        StatRockView statRock = playerItemView.findViewById(R.id.statrock);
+                        if (statRock != null) {
+                            boolean isFullyVisible = statRock.getGlobalVisibleRect(rect)
+                                    && rect.top >= 0
+                                    && rect.bottom <= recyclerView.getHeight();
+
+                            if (!isPlayerLoaded && isFullyVisible) {
+                                statRock.load("Hr5pC_SLH6PV", StatRockType.IN_PAGE);
+                                isPlayerLoaded = true;
+                            }
+                        }
+                    }
+                }
+            }
+        });
 
         prepareMovieData();
         return view;

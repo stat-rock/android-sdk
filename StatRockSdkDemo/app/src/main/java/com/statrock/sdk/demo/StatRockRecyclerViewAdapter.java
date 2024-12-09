@@ -1,6 +1,8 @@
 package com.statrock.sdk.demo;
 
 import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
@@ -8,25 +10,27 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.statrock.sdk.StatRockContainer;
 import com.statrock.sdk.StatRockListener;
-import com.statrock.sdk.StatRockType;
 import com.statrock.sdk.StatRockView;
 import com.statrock.sdk.demo.util.DimensionUtils;
 
 public class StatRockRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+    private final int AD_VIEW_TYPE = 100;
+
     @NonNull
     private final RecyclerView.Adapter wrappedAdapter;
     @NonNull
-    private final String placementId;
-    @NonNull
     private final RecyclerView.AdapterDataObserver adapterDataObserver;
 
-    private int adPosition = 2;
-    private int adViewType = 100;
+    private final int adPosition;
+    private final FrameLayout stickyContainer;
 
-    public StatRockRecyclerViewAdapter(@NonNull RecyclerView.Adapter wrappedAdapter, @NonNull String placementId) {
+    public StatRockRecyclerViewAdapter(@NonNull RecyclerView.Adapter wrappedAdapter,
+                                       int adPosition, FrameLayout stickyContainer) {
         this.wrappedAdapter = wrappedAdapter;
-        this.placementId = placementId;
+        this.adPosition = adPosition;
+        this.stickyContainer = stickyContainer;
         super.setHasStableIds(wrappedAdapter.hasStableIds());
         this.adapterDataObserver = new RecyclerView.AdapterDataObserver() {
 
@@ -67,17 +71,17 @@ public class StatRockRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        if (viewType == adViewType) {
+        if (viewType == AD_VIEW_TYPE) {
             Context context = parent.getContext();
-            StatRockView statRockView = new StatRockView(context);
-            statRockView.setLayoutParams(new FrameLayout.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT, DimensionUtils.dp2px(context, 0)));
+            View view = LayoutInflater.from(context).inflate(R.layout.player_container, parent, false);
+            StatRockView statRockView = view.findViewById(R.id.statrock);
+            statRockView.setStickyContainer(stickyContainer);
             statRockView.setListener(new StatRockListener() {
                 @Override
                 public void adLoaded() {
-                    ViewGroup.LayoutParams params = statRockView.getLayoutParams();
+                    ViewGroup.LayoutParams params = view.getLayoutParams();
                     params.height = DimensionUtils.dp2px(context, 200);
-                    statRockView.setLayoutParams(params);
+                    view.setLayoutParams(params);
                 }
 
                 @Override
@@ -86,16 +90,16 @@ public class StatRockRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
 
                 @Override
                 public void adStopped() {
-                    ViewGroup.LayoutParams params = statRockView.getLayoutParams();
+                    ViewGroup.LayoutParams params = view.getLayoutParams();
                     params.height = 0;
-                    statRockView.setLayoutParams(params);
+                    view.setLayoutParams(params);
                 }
 
                 @Override
                 public void adError(Object message, Object error) {
                 }
             });
-            return new AdPlayerViewHolder(statRockView);
+            return new AdPlayerViewHolder((StatRockContainer) view);
         }
         return wrappedAdapter.onCreateViewHolder(parent, viewType);
     }
@@ -103,8 +107,6 @@ public class StatRockRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         if (position == adPosition) {
-            AdPlayerViewHolder myViewHolder = (AdPlayerViewHolder) holder;
-            myViewHolder.load(placementId);
         } else {
             wrappedAdapter.onBindViewHolder(holder, wrappedPosition(position));
         }
@@ -124,7 +126,7 @@ public class StatRockRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
     @Override
     public int getItemViewType(int position) {
         if (position == adPosition) {
-            return adViewType;
+            return AD_VIEW_TYPE;
         } else {
             return wrappedAdapter.getItemViewType(wrappedPosition(position));
         }
@@ -199,15 +201,8 @@ public class StatRockRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
     }
 
     private static class AdPlayerViewHolder extends RecyclerView.ViewHolder {
-        private final StatRockView adPlayerView;
-
-        AdPlayerViewHolder(StatRockView adPlayerView) {
+        AdPlayerViewHolder(StatRockContainer adPlayerView) {
             super(adPlayerView);
-            this.adPlayerView = adPlayerView;
-        }
-
-        void load(String placementId) {
-            adPlayerView.load(placementId, StatRockType.IN_PAGE);
         }
     }
 }

@@ -42,5 +42,7 @@ dependencies {
     implementation 'androidx.browser:browser:1.8.0'
     implementation 'com.google.android.gms:play-services-location:21.3.0'
     implementation 'com.google.android.gms:play-services-ads-identifier:18.1.0'
-    implementation 'com.statrock.sdk:android.release:1.4.1'
+    //implementation 'com.statrock.sdk:android.release:1.4.1'
+    implementation files('libs/statrock-sdk-release.aar')
+    //implementation files('libs/statrock-sdk-debug.aar')
 }
