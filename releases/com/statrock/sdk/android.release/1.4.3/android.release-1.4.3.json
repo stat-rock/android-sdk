@@ -1,0 +1,116 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.statrock.sdk",
+    "module": "android.release",
+    "version": "1.4.3",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.14.4"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "android.release-1.4.3.aar",
+          "url": "android.release-1.4.3.aar",
+          "size": 26113,
+          "sha512": "1d8d72aef363713813a53e8a97dacf1a67062faf29a8f2b99aba3ef28fa3cb7f72f96a1a7c6942dd05ffffb94776b8e4ec47f8e99ffc8fdd1c54d99c6c6a90f3",
+          "sha256": "ea2e6e54f8d44c6f2ed6fcf8c6977d845be1efbb5b55caf14964b3fd68e01ee9",
+          "sha1": "3a9f50fc5582028d7cd86d03927ad9b4f002ab59",
+          "md5": "3e41c6b151e431f6f5de43266448f5db"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "androidx.browser",
+          "module": "browser",
+          "version": {
+            "requires": "1.9.0"
+          }
+        },
+        {
+          "group": "com.google.android.gms",
+          "module": "play-services-location",
+          "version": {
+            "requires": "21.3.0"
+          }
+        },
+        {
+          "group": "com.google.android.gms",
+          "module": "play-services-ads-identifier",
+          "version": {
+            "requires": "18.3.0"
+          }
+        },
+        {
+          "group": "com.squareup.okhttp3",
+          "module": "okhttp",
+          "version": {
+            "requires": "5.3.2"
+          }
+        },
+        {
+          "group": "io.reactivex.rxjava3",
+          "module": "rxandroid",
+          "version": {
+            "requires": "3.0.2"
+          }
+        },
+        {
+          "group": "io.reactivex.rxjava3",
+          "module": "rxjava",
+          "version": {
+            "requires": "3.1.12"
+          }
+        },
+        {
+          "group": "com.google.code.gson",
+          "module": "gson",
+          "version": {
+            "requires": "2.13.2"
+          }
+        },
+        {
+          "group": "androidx.recyclerview",
+          "module": "recyclerview",
+          "version": {
+            "requires": "1.4.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "android.release-1.4.3.aar",
+          "url": "android.release-1.4.3.aar",
+          "size": 26113,
+          "sha512": "1d8d72aef363713813a53e8a97dacf1a67062faf29a8f2b99aba3ef28fa3cb7f72f96a1a7c6942dd05ffffb94776b8e4ec47f8e99ffc8fdd1c54d99c6c6a90f3",
+          "sha256": "ea2e6e54f8d44c6f2ed6fcf8c6977d845be1efbb5b55caf14964b3fd68e01ee9",
+          "sha1": "3a9f50fc5582028d7cd86d03927ad9b4f002ab59",
+          "md5": "3e41c6b151e431f6f5de43266448f5db"
+        }
+      ]
+    }
+  ]
+}
