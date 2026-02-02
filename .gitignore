@@ -1,0 +1,22 @@
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+/.idea/
+# OS-specific files
+.DS_Store
+.DS_Store?
+StatRockSdkDemo/gradle/
+StatRockSdkDemo/gradlew
+StatRockSdkDemo/gradlew.bat

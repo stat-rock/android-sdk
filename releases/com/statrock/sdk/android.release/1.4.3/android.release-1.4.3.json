@@ -10,7 +10,7 @@
   },
   "createdBy": {
     "gradle": {
-      "version": "8.14.4"
+      "version": "8.2"
     }
   },
   "variants": [
@@ -26,11 +26,11 @@
         {
           "name": "android.release-1.4.3.aar",
           "url": "android.release-1.4.3.aar",
-          "size": 26113,
-          "sha512": "1d8d72aef363713813a53e8a97dacf1a67062faf29a8f2b99aba3ef28fa3cb7f72f96a1a7c6942dd05ffffb94776b8e4ec47f8e99ffc8fdd1c54d99c6c6a90f3",
-          "sha256": "ea2e6e54f8d44c6f2ed6fcf8c6977d845be1efbb5b55caf14964b3fd68e01ee9",
-          "sha1": "3a9f50fc5582028d7cd86d03927ad9b4f002ab59",
-          "md5": "3e41c6b151e431f6f5de43266448f5db"
+          "size": 26245,
+          "sha512": "752af0dc05a817d828e1c05945cce3a98dd73a9203cea56db7773717fb40563183c80bffc67f1debf22c3d9f4d8c0b283c6d29c97a84c7139e6a9baad4722b0b",
+          "sha256": "2ad767fd080b82ae2c0c1bcccbacd60b4e6f0dc3c7e2665899f38eb90fbb7997",
+          "sha1": "36f0ee5f2c980e78fc224fc3ab928d9ded27906d",
+          "md5": "b40f745afcf0d2af039e265d97a70162"
         }
       ]
     },
@@ -104,11 +104,11 @@
         {
           "name": "android.release-1.4.3.aar",
           "url": "android.release-1.4.3.aar",
-          "size": 26113,
-          "sha512": "1d8d72aef363713813a53e8a97dacf1a67062faf29a8f2b99aba3ef28fa3cb7f72f96a1a7c6942dd05ffffb94776b8e4ec47f8e99ffc8fdd1c54d99c6c6a90f3",
-          "sha256": "ea2e6e54f8d44c6f2ed6fcf8c6977d845be1efbb5b55caf14964b3fd68e01ee9",
-          "sha1": "3a9f50fc5582028d7cd86d03927ad9b4f002ab59",
-          "md5": "3e41c6b151e431f6f5de43266448f5db"
+          "size": 26245,
+          "sha512": "752af0dc05a817d828e1c05945cce3a98dd73a9203cea56db7773717fb40563183c80bffc67f1debf22c3d9f4d8c0b283c6d29c97a84c7139e6a9baad4722b0b",
+          "sha256": "2ad767fd080b82ae2c0c1bcccbacd60b4e6f0dc3c7e2665899f38eb90fbb7997",
+          "sha1": "36f0ee5f2c980e78fc224fc3ab928d9ded27906d",
+          "md5": "b40f745afcf0d2af039e265d97a70162"
         }
       ]
     }
