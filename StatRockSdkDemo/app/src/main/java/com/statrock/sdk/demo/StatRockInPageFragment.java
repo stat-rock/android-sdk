@@ -11,6 +11,7 @@ import android.widget.ScrollView;
 
 import androidx.annotation.NonNull;
 
+import com.statrock.sdk.AdErrorType;
 import com.statrock.sdk.StatRockListener;
 import com.statrock.sdk.StatRockType;
 import com.statrock.sdk.StatRockView;
@@ -35,7 +36,24 @@ public class StatRockInPageFragment extends SimpleFragment {
         StatRockView statRockView = view.findViewById(R.id.statrock);
         FrameLayout stickyContainer = view.findViewById(R.id.sticky_container);
         statRockView.setStickyContainer(stickyContainer);
+        statRockView.setListener(new StatRockListener() {
+            @Override
+            public void adLoaded() {
+            }
 
+            @Override
+            public void adStarted() {
+            }
+
+            @Override
+            public void adStopped() {
+            }
+
+            @Override
+            public void adError(AdErrorType errorType, String errorMessage) {
+                //Handle errors
+            }
+        });
         Rect rect = new Rect();
         scrollView.getViewTreeObserver().addOnScrollChangedListener(() -> {
             boolean isVisible = statRockView.getGlobalVisibleRect(rect);

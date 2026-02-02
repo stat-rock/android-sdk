@@ -32,7 +32,7 @@ Then, add the library dependency to app module `build.gradle`:
 ```gradle
 dependencies {
     ...
-    implementation 'com.statrock.sdk:android.release:1.4.2''
+    implementation 'com.statrock.sdk:android.release:1.4.3''
 }
 ```
 
@@ -55,7 +55,24 @@ class SimpleFragment extends Fragment {
         //... init view
         StatRockView statRock = view.findViewById(R.id.statrock);
         statRock.load("<your placement ID>", TYPE); //TYPE: StatRockType - IN_PAGE or null 
-        
+        statRock.setListener(new StatRockListener() {
+            @Override
+            public void adLoaded() {
+            }
+
+            @Override
+            public void adStarted() {
+            }
+
+            @Override
+            public void adStopped() {
+            }
+
+            @Override
+            public void adError(AdErrorType errorType, String errorMessage) {
+                //Handle errors
+            }
+        });
         return view;
     }
 }
